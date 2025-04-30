@@ -1,0 +1,12 @@
+import numpy as np
+house_data = np.array([
+    [3, 2000, 300000],
+    [5, 3500, 500000],
+    [4, 2500, 400000],
+    [6, 4000, 600000],
+    [2, 1800, 250000]
+])
+filtered_data = house_data[house_data[:, 0] > 4]
+sale_prices = filtered_data[:, 2]
+average_price = np.mean(sale_prices)
+print("Average sale price of houses with more than 4 bedrooms:", average_price)
