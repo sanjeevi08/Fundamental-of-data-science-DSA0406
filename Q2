@@ -1,0 +1,11 @@
+import numpy as np
+sales_data = np.array([
+    [100, 5.0, 500],
+    [150, 7.0, 1050],
+    [200, 6.5, 1300]
+])
+
+quantities = sales_data[:, 0]
+unit_prices = sales_data[:, 1]
+average_price = np.sum(quantities * unit_prices) / np.sum(quantities)
+print("Average price of all products sold:", round(average_price, 2))
