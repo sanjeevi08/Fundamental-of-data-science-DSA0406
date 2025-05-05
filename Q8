@@ -1,0 +1,16 @@
+import pandas as pd
+
+data = {
+    'product_name': ['Laptop', 'Mouse', 'Laptop', 'Keyboard', 'Mouse', 'Monitor', 'Laptop', 'Keyboard', 'Mouse', 'Monitor'],
+    'quantity_sold': [1, 4, 2, 3, 5, 2, 3, 2, 3, 4],
+    'sale_date': pd.date_range(start='2023-07-01', periods=10, freq='D')
+}
+
+sales_data = pd.DataFrame(data)
+
+top_products = sales_data.groupby('product_name')['quantity_sold'].sum()
+
+top_5 = top_products.sort_values(ascending=False).head(5)
+
+print("Top 5 Most Sold Products in the Past Month:")
+print(top_5)
