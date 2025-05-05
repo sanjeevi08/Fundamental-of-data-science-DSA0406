@@ -1,0 +1,18 @@
+item_prices = [2.5, 4.0, 1.5, 3.0]     
+quantities = [2, 1, 4, 3]              
+discount_rate = 10.0                  
+tax_rate = 8.5                        
+
+subtotal = sum([price * qty for price, qty in zip(item_prices, quantities)])
+print(f"Subtotal: ${subtotal:.2f}")
+
+discount_amount = (discount_rate / 100) * subtotal
+subtotal_after_discount = subtotal - discount_amount
+print(f"Discount Amount: -${discount_amount:.2f}")
+print(f"Subtotal After Discount: ${subtotal_after_discount:.2f}")
+
+tax_amount = (tax_rate / 100) * subtotal_after_discount
+total_cost = subtotal_after_discount + tax_amount
+print(f"Tax Amount: +${tax_amount:.2f}")
+
+print(f"Total Cost: ${total_cost:.2f}")
