@@ -1,0 +1,25 @@
+import re
+from collections import Counter
+reviews = [
+    "Great product! Really loved it.",
+    "Not worth the price. Poor quality.",
+    "Amazing quality and fast delivery. Highly recommend!",
+    "Terrible experience. Will not buy again.",
+    "Good value for money. Will buy again."
+]
+
+def preprocess(text):
+    text = text.lower()
+    text = re.sub(r'[^a-z\s]', '', text)
+    return text
+
+all_reviews = " ".join(reviews)
+cleaned_text = preprocess(all_reviews)
+
+words = cleaned_text.split()
+
+word_freq = Counter(words)
+
+print("Word Frequency Distribution:\n")
+for word, freq in word_freq.most_common():
+    print(f"{word}: {freq}")
